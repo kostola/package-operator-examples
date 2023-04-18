@@ -4,8 +4,10 @@ metadata:
   name: nginx
 spec:
   scopes:
+  - Cluster
   - Namespaced
   phases:
+  - name: ns
   - name: deploy
   availabilityProbes:
   - probes:
@@ -31,7 +33,7 @@ spec:
               type: object
               description: "contains configuration for addons.managed.openshift.io/v1alpha1"
               properties:
-                deadManSnitchUrl:
+                deadMansSnitchUrl:
                   type: string
                   description: "Dead Man's Snitch URL"
                 pagerDutyKey:
@@ -50,5 +52,5 @@ test:
       config:
         addons:
           v1alpha1:
-            deadManSnitchUrl: https://example.com/test-snitch-url
+            deadMansSnitchUrl: https://example.com/test-snitch-url
             pagerDutyKey: 1a2b3c4d5e6f
